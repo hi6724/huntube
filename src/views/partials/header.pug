@@ -1,0 +1,26 @@
+header
+    a(href="/").header__logo
+        i.fab.fa-youtube
+    nav
+        ul
+            li
+                a(href="/search")
+                    i.fas.fa-search
+            if loggedIn
+                li
+                    a(href="/videos/upload") Upload Video
+                li
+                    a(href="/users/edit") Edit Profile
+                li
+                    a(href="/users/logout")  Log Out
+                li
+                    a(href=`/users/${loggedInUser._id}`)
+                        if loggedInUser.avatarUrl === ""
+                            img.header__avatar(src="https://i.pinimg.com/564x/34/c2/f9/34c2f984350ed23d1efa7094d7923c5a.jpg")
+                        else
+                            img.header__avatar(src="/" + loggedInUser.avatarUrl)
+            else
+                li
+                    a(href="/login")  Login                        
+                li
+                    a(href="/join").header__btn  Join

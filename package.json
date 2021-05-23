@@ -1,0 +1,45 @@
+{
+  "name": "huntube",
+  "version": "1.0.0",
+  "description": "The best way to watch videos.",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "nodemon",
+    "dev:assets": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hi6724/huntube.git"
+  },
+  "author": "Hunmok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hi6724/huntube/issues"
+  },
+  "homepage": "https://github.com/hi6724/huntube#readme",
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.12.7",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.1",
+    "pug": "^3.0.2",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.5",
+    "mini-css-extract-plugin": "^1.6.0",
+    "nodemon": "^2.0.7",
+    "sass": "^1.33.0",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "devDependencies": {}
+}
