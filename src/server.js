@@ -1,11 +1,13 @@
 import express from "express";
 import session from "express-session";
+import flash from "express-flash";
 import morgan from "morgan";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
+import apiRouter from "./routers/apiRouter";
 const PORT = 4000;
 //create app
 const app = express();
@@ -26,11 +28,13 @@ app.use(
     }),
   })
 );
+app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
+app.use("/api", apiRouter);
 
 export default app;

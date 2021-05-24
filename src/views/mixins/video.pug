@@ -1,8 +1,9 @@
+
 mixin video(video)
     a(href=`/videos/${video.id}`).video-mixin
-        div.video-mixin__thumb
+        div.video-mixin__thumb(style=`background-image:url(../../uploads/videos/${video.thumbUrl});background-size:cover;background-position:center;`)
         div.video-mixin__data
             span.video-mixin__title=video.title
             div.video-mixin__meta
                 span #{video.owner.name} • 
-                span #{video.meta.views} 회 
+                span #{video.meta.views} 회

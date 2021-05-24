@@ -7,6 +7,9 @@ block content
       if loggedInUser.avatarUrl==""
         div.avatar-card 
           img(src="https://i.pinimg.com/564x/34/c2/f9/34c2f984350ed23d1efa7094d7923c5a.jpg").avatar
+      else if loggedInUser.avatarUrl[0]=="h"
+        div.avatar-card  
+          img(src= user.avatarUrl, alt="").avatar
       else
         div.avatar-card  
           img(src="/"+ user.avatarUrl, alt="").avatar
