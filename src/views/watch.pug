@@ -1,6 +1,7 @@
 extends base
 
 block content
+    //- data-id -> data 를 백엔드에서 받아와서 프론트앤드로 넘겨줌
     div#videoContainer(data-id=video._id)
         video(src="/" + video.fileUrl)
         div#videoControls.videoControls
@@ -19,16 +20,32 @@ block content
             div
                 span#fullScreen
                     i.fas.fa-expand
-    //-
-        div
-            p=video.description
-            small=video.createdAt
-        div
-            small Uploaded by 
-                a(href=`/users/${video.owner._id}`)=video.owner.name
+
+    div.video__data
+        p.video__title=video.title
+        small.video__owner Uploaded by 
+            a(href=`/users/${video.owner._id}`)=video.owner.name
+        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
         if String(video.owner._id) === String(loggedInUser._id)
             a(href=`${video.id}/edit`) Edit Video &rarr;
             br
             a(href=`${video.id}/delete`) Delete Video &rarr;
+    if loggedIn
+        div.video__comments
+            form.video__comment-form#commentForm
+                textarea(cols="30", rows="10", placeholder="Write a nice commment...")
+                button Add Comment
+
+    div.video__comments
+        ul 
+            each comment in video.comments.reverse()
+                li.video__comment(data-id=comment.id)
+                    i.fas.fa-comment
+                    |  #{comment.text} 
+
+
+
 block scripts
-    script(src="/static/js/videoPlayer.js") 
+    script(src="/static/js/videoPlayer.js")
+    if loggedIn
+        script(src="/static/js/commentSection.js")

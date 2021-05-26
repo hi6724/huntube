@@ -17,6 +17,7 @@ app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 //HTML form을 이해하고 JavaScript에서 사용할수 있게해줌
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 //cookie 전송 middleware session ID가 cookie 안에 저장되고 session 정보는 DB에 저장
 app.use(
   session({
