@@ -2,19 +2,36 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  .video__title {
-    font-size: 26px;
-    margin-bottom: 5px;
+
+  .video__data-header {
+    .video__title {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+    .video__createdAt {
+      font-size: 12px;
+    }
+    hr {
+      margin: 15px 0 25px 0;
+      opacity: 0.6;
+    }
   }
-  .video__createdAt {
-    font-size: 12px;
-  }
-  .video__owner {
-    margin-bottom: 5px;
-    font-size: 14px;
-    a {
-      color: cornflowerblue;
-      text-decoration: underline;
+
+  .video_data-meta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+    }
+    span {
+      margin-left: 25px;
+      top: 0;
+      position: absolute;
+      font-size: 25px;
+      font-weight: 400;
     }
   }
 }

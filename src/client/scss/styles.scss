@@ -3,6 +3,7 @@
 @import "./config/_reset.scss";
 
 // Components
+
 @import "./components/header.scss";
 @import "./components/footer.scss";
 @import "./components/video.scss";
@@ -12,9 +13,11 @@
 @import "./components/video-player.scss";
 
 // Screens
+
 @import "./screens/search.scss";
 @import "./screens/profile.scss";
 @import "./screens/edit-profile.scss";
+@import "./screens/upload.scss";
 @import "./screens/watch.scss";
 
 // Defaults

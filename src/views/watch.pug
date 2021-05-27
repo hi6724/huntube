@@ -22,14 +22,26 @@ block content
                     i.fas.fa-expand
 
     div.video__data
-        p.video__title=video.title
-        small.video__owner Uploaded by 
-            a(href=`/users/${video.owner._id}`)=video.owner.name
-        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+        //- div.video__data-header
+        //-     a(href=`/users/${video.owner._id}`) 
+        //-         img(src=`/${video.owner.avatarUrl}`, alt="").video__data-avatar
+        div.video__data-header
+            p.video__title=video.title
+            small.video__view Views: #{video.meta.views}            
+            small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+            hr
+        div.video_data-meta
+            a(href=`/users/${video.owner._id}`)
+                if video.owner.avatarUrl[0]=="h"
+                    img(src=video.owner.avatarUrl, alt="").video__data-avatar
+                else 
+                    img(src="/"+video.owner.avatarUrl, alt="").video__data-avatar
+                span=video.owner.name
         if String(video.owner._id) === String(loggedInUser._id)
-            a(href=`${video.id}/edit`) Edit Video &rarr;
-            br
-            a(href=`${video.id}/delete`) Delete Video &rarr;
+            div 
+                a(href=`${video.id}/edit`) Edit Video &rarr; 
+                br
+                a(href=`${video.id}/delete`) Delete Video &rarr;
     if loggedIn
         div.video__comments
             form.video__comment-form#commentForm
@@ -42,7 +54,8 @@ block content
                 li.video__comment(data-id=comment.id)
                     i.fas.fa-comment
                     |  #{comment.text} 
-
+                    if String(comment.owner) === String(loggedInUser._id)
+                        span.deleteBtn(data-id=comment.id) ❌
 
 
 block scripts
