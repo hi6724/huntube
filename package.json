@@ -4,8 +4,12 @@
   "description": "The best way to watch videos.",
   "main": "index.js",
   "scripts": {
+    "start":"node build/init.js",
+    "build":"npm run build:server && npm run build:assets",
+    "build:server":"babel src -d build",
+    "build:assets":"webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,6 @@
   },
   "homepage": "https://github.com/hi6724/huntube#readme",
   "dependencies": {
-    "@babel/core": "^7.13.10",
     "@babel/node": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@ffmpeg/core": "^0.10.0",
@@ -45,5 +48,8 @@
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3"
+  }
 }
