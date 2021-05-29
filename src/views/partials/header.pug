@@ -15,12 +15,13 @@ header
                     a(href="/users/logout")  Log Out
                 li
                     a(href=`/users/${loggedInUser._id}`)
-                        if loggedInUser.avatarUrl === ""
-                            img.header__avatar(src="https://i.pinimg.com/564x/34/c2/f9/34c2f984350ed23d1efa7094d7923c5a.jpg")
-                        else if loggedInUser.avatarUrl[0] === "h"
-                            img.header__avatar(src= loggedInUser.avatarUrl)
-                        else
-                            img.header__avatar(src="/" + loggedInUser.avatarUrl)
+                        if loggedInUser.avatarUrl
+                            if loggedInUser.avatarUrl === ""
+                                img.header__avatar(src="https://i.pinimg.com/564x/34/c2/f9/34c2f984350ed23d1efa7094d7923c5a.jpg")
+                            else if loggedInUser.avatarUrl[0] === "h"
+                                img.header__avatar(src= loggedInUser.avatarUrl)
+                            else
+                                img.header__avatar(src="/" + loggedInUser.avatarUrl)
             else
                 li
                     a(href="/login")  Login                        
