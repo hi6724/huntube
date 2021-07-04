@@ -3,7 +3,7 @@ extends base
 block content
     //- data-id -> data 를 백엔드에서 받아와서 프론트앤드로 넘겨줌
     div#videoContainer(data-id=video._id)
-        video(src="/" + video.fileUrl)
+        video(src= video.fileUrl)
         div#videoControls.videoControls
             div.videoControls__play
                 span#play.videoControls__playBtn
